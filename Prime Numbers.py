@@ -1,3 +1,7 @@
+
+
+
+
 def primes_method2(n):
     out = list()
     for num in range(1, n + 1):
@@ -57,3 +61,26 @@ print(primes_method2(10))
 [1, 2, 3, 5, 7]
 
 """
+
+
+####################################################################
+
+
+def isUgly(self, n: int):
+    out = []
+    for num in range(6, n + 1):
+        if all(num % i != 0 for i in range(2, int(num ** .5) + 1)):
+            out.append(num)
+
+    return out
+
+
+"""
+
+Why would int(num ** .5) + 1) placing in this part make the code more efficient?
+         
+"""
+
+
+
+
