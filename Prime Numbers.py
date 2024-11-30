@@ -32,6 +32,8 @@ def primes_method2(n):
 """
 
 print(primes_method2(10))
+
+""""
 []
 1
 []
@@ -53,3 +55,5 @@ print(primes_method2(10))
 [False, True, True, False, True, True, True, True]
 10
 [1, 2, 3, 5, 7]
+
+"""
