@@ -82,5 +82,3 @@ Why would int(num ** .5) + 1) placing in this part make the code more efficient?
 """
 
 
-
-
