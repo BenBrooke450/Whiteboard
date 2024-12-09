@@ -42,6 +42,12 @@ def repeatedSubstringPattern(s: str) -> bool:
         return False
 
 
+"""
+So what´s really going on here
+
+"""
+
+
 # Example usage
 print(repeatedSubstringPattern("abab"))
 # Output: True
