@@ -75,7 +75,9 @@ print("a" not in "bc")
 
 
 def selfDividingNumbers(self, left: int, right: int) -> list[int]:
+
         list2 = []
+
         number = [[str(x) for x in str(numbers)] for numbers in range(left, right+1) if numbers % 10 != 0 and "0" not in str(numbers)]
 
         a = list(filter(lambda nums: all(map(lambda y : int("".join(nums)) % int(y) == 0 ,(y for y in nums))) ,(nums for nums in number)))
@@ -155,6 +157,16 @@ def reformant(string: str, k: int):
     return "".join(ujr[::-1])
 
 
+"""
+What's going on. First we look at the first line, we use upper() and replace() to make all letters capital and
+            replace all elements of "-" to a None space soo.. "2e-9-w" to "2E9W".
+            
+            On the second line we flip the whole line from "2E9W" to "W9E2".
+            
+            We then iterate through each letter 
+
+
+"""
 
 
 
@@ -502,6 +514,93 @@ print(func([5,4,3,2,1]))
 print(func([10,3,8,9,4]))
 #['Gold Medal', 'Bronze Medal', 'Silver Medal', 4, 5]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#####################################################################################
+#                599. Minimum Index Sum of Two Lists
+#####################################################################################
+
+
+
+"""
+Given two arrays of strings list1 and list2,
+ find the common strings with the least index sum.
+
+A common string is a string that appeared in both list1 and list2.
+
+A common string with the least index sum
+is a common string such that if it
+appeared at list1[i] and list2[j]
+then i + j should be the minimum
+value among all the other common strings.
+
+Return all the common strings
+with the least index sum. Return the answer in any order.
+
+
+
+Example 1:
+
+Input: list1 = ["Shogun","Tapioca Express","Burger King","KFC"],
+        list2 = ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]
+
+Output: ["Shogun"]
+Explanation: The only common string is "Shogun".
+Example 2:
+
+Input: list1 = ["Shogun","Tapioca Express","Burger King","KFC"], list2 = ["KFC","Shogun","Burger King"]
+Output: ["Shogun"]
+Explanation: The common string with the least index sum is "Shogun" with index sum = (0 + 1) = 1.
+Example 3:
+
+Input: list1 = ["happy","sad","good"], list2 = ["sad","happy","good"]
+Output: ["sad","happy"]
+Explanation: There are three common strings:
+"happy" with index sum = (0 + 1) = 1.
+"sad" with index sum = (1 + 0) = 1.
+"good" with index sum = (2 + 2) = 4.
+The strings with the least index sum are "sad" and "happy".
+
+"""
+
+
+
+def name(nums1:list[str],nums2:list[str]):
+
+    dic1 = {}
+
+    for index, words in enumerate(nums1):
+
+        if words in nums2:
+
+            index_two = nums2.index(words)
+
+            if (index + index_two) in dic1:
+
+                dic1[index + index_two] = dic1.get(index + index_two) + ',' + words
+
+            else:
+                dic1[index + index_two] = words
+
+    return (dic1.get(min(dic1.keys()))).split(",")
+
+
+print(name(["happy","sad","good"], ["sad","happy","good"]))
+#['happy', 'sad']
 
 
 
