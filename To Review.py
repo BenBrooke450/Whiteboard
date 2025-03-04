@@ -1603,6 +1603,17 @@ def lib(s:str):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 #####################################################################################
 #          1534. Count Good Triplets
 #####################################################################################
@@ -1963,6 +1974,13 @@ print(luckyNumbers([[3,7,8],[9,11,13],[15,16,17]]))
 
 
 
+
+
+
+
+
+
+
 #####################################################################################
 #          1436. Destination City
 #####################################################################################
@@ -2007,6 +2025,12 @@ def destCity(paths: list[list[str]]) -> str:
 
 print(destCity([["B","C"],["D","B"],["C","A"]]))
 #A
+
+
+
+
+
+
 
 
 
@@ -2087,6 +2111,13 @@ print(deleteGreatestValue([[1,2,4],[3,3,1]]))
 
 print(deleteGreatestValue([[10]]))
 #10
+
+
+
+
+
+
+
 
 
 
@@ -2387,6 +2418,10 @@ print(countSymmetricIntegers(low = 1, high = 1200))
 
 
 
+
+
+
+
 #####################################################################################
 #            3174. Clear Digits
 #####################################################################################
@@ -2429,6 +2464,12 @@ def clearDigits(s: str) -> str:
 
 
 print(clearDigits("cb34"))
+
+
+
+
+
+
 
 
 
@@ -2716,6 +2757,25 @@ print(countVowelSubstrings("cuaieuoutac"))
 
 
 
+
+
+
+#####################################################################################
+#           Coolest bit of code you'll ever need
+#####################################################################################
+
+
+def largestOddNumber(num: str) -> str:
+    if all(int(x) % 2 == 0 for x in num):
+        return ""
+    elif int(num) % 2 != 0:
+        return num
+    else:
+        substrings = [int(num[i:j]) for i in range(len(num)) for j in range(i + 1, len(num) + 1) if int(num[i:j]) % 2 != 0]
+    return max(substrings)
+
+
+#This " substrings" builds a list of every substring within a list
 
 
 
