@@ -213,6 +213,8 @@ print(reformant("5F3Z-2e-9-w",4))
 
 
 
+
+
 #############################################################
 #                459. Repeated Substring Pattern
 #############################################################
@@ -262,6 +264,10 @@ def func(string:str):
 
 
 func("abcabcabcabc")
+
+
+
+
 
 
 
@@ -425,6 +431,11 @@ def keyboard(list1 : list[str]):
 print(keyboard(["Hello","Alaska","Dad","Peace"]))
 
 #['Alaska', 'Dad']
+
+
+
+
+
 
 
 
@@ -1388,8 +1399,6 @@ print(func(["a","b","a"], k = 3))
 #####################################################################################
 
 
-
-
 """
 
 You are given a 0-indexed integer array nums.
@@ -1486,8 +1495,6 @@ print(unqieu([1,2,1]))
 #####################################################################################
 #          1844. Replace All Digits with Characters
 #####################################################################################
-
-
 
 
 """
@@ -1818,12 +1825,12 @@ print(loop("B0B6G0R6R0R6G9"))
 
 
 
+
+
+
 #####################################################################################
 #          1309. Decrypt String from Alphabet to Integer Mapping
 #####################################################################################
-
-
-
 
 
 """
@@ -1905,6 +1912,18 @@ V = {'1': 'a', '2': 'b', '3': 'c', '4': 'd', '5': 'e', '6': 'f',
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 #####################################################################################
 #          1380. Lucky Numbers in a Matrix
 #####################################################################################
@@ -1965,6 +1984,11 @@ print(luckyNumbers([[1,10,4,2],[9,3,8,7],[15,16,17,12]]))
 
 print(luckyNumbers([[3,7,8],[9,11,13],[15,16,17]]))
 #[15]
+
+
+
+
+
 
 
 
@@ -2111,6 +2135,9 @@ print(deleteGreatestValue([[1,2,4],[3,3,1]]))
 
 print(deleteGreatestValue([[10]]))
 #10
+
+
+
 
 
 
@@ -2882,6 +2909,111 @@ print(findXSum([5,5,4,3,1,3,1,3,4,6,4,2],10,2))
 
 
 print(findXSum([2,8,9,3,4,9,4],6,1))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#####################################################################################
+#           1496. Path Crossing
+#####################################################################################
+
+
+"""
+Given a string path, where path[i] = 'N', 'S', 'E' or 'W', each
+    representing moving one unit north, south, east, or west,
+    respectively. You start at the origin (0, 0) on a 2D plane
+    and walk on the path specified by path.
+
+Return true if the path crosses itself at any point, that is,
+    if at any time you are on a location you have previously visited. Return false otherwise.
+
+
+
+Example 1:
+Input: path = "NES"
+Output: false
+Explanation: Notice that the path doesn't cross any point more than once.
+
+
+Example 2:
+Input: path = "NESWW"
+Output: true
+Explanation: Notice that the path visits the origin twice.
+"""
+
+import copy
+
+def isPathCrossing(path: str) -> bool:
+    list1 = [[0,0]]
+    for n in path:
+
+        last_p = copy.deepcopy(list1)
+        last_p = last_p[0]
+
+        if n == "N":
+            last_p[0] = last_p[0] + 1
+            print(list1,last_p)
+            if last_p in list1:
+                return True
+            else:
+                list1.insert(0,last_p,)
+        elif n == "E":
+            last_p[1] = last_p[1] + 1
+            if last_p in list1:
+                return True
+            else:
+                list1.insert(0,last_p,)
+
+        elif n == "S":
+            last_p[0] = last_p[0] - 1
+            if last_p in list1:
+                return True
+            else:
+                list1.insert(0,last_p,)
+
+        elif n == "W":
+            last_p[1] = last_p[1] - 1
+            if last_p in list1:
+                return True
+            else:
+                list1.insert(0,last_p,)
+    return False
+
+
+
+print(isPathCrossing("NES"))
+
+
+
 
 
 
