@@ -3137,3 +3137,43 @@ print(isMonotonic([6,5,4,4]))
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#####################################################################################
+#           345. Reverse Vowels of a String
+#####################################################################################
+
+
+
+def reverseVowels(s: str) -> str:
+    vowels = ["o", "u", "i", "e", "a","O", "U", "I", "E", "A"]
+    loc_vowels = np.array([i for i,x in enumerate(s) if x in vowels])
+    s = np.array([x for x in s])
+    for x,y in zip(loc_vowels,loc_vowels[::-1]):
+        if x < y:
+            s[x],s[y] = s[y],s[x]
+        else:
+            break
+    return "".join(s.tolist())
+
+
+print(reverseVowels("leetcode"))
+
+
+
+
